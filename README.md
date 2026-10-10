@@ -1,22 +1,31 @@
 # Python Backend Interview Projects
 
-Hands-on backend projects built with Python, FastAPI, and Django to demonstrate API design, validation, authentication, authorization, data processing, persistence, and testing.
+Hands-on portfolio projects built with Python, FastAPI, and Django. Each folder is a self-contained exercise with setup instructions and tests.
 
 ## Projects
 
-### 1. FastAPI OEM Product Processor
-`01-fastapi-oem-processor/`
+### 1. [FastAPI OEM Product Processor](./01-fastapi-oem-processor/)
+Validates OEM product payloads with Pydantic and calculates total product value in a separate service layer. Includes health endpoint and API tests.
 
-A REST API that validates OEM product records and calculates total product value. Includes Pydantic schemas, a separate service layer, health endpoint, and pytest API tests.
+**Stack:** FastAPI, Pydantic, pytest
 
-- [Project README](01-fastapi-oem-processor/README.md)
-- Stack: Python, FastAPI, Pydantic, pytest
-- Planned extensions: CSV batch ingestion, PostgreSQL, idempotency, retries, structured logging, CI
+### 2. [FastAPI RBAC API](./02-fastapi-rbac/)
+Demonstrates JWT bearer authentication, centralized role-to-permission mapping, protected endpoints, and API-appropriate `401 Unauthorized` versus `403 Forbidden` responses.
 
-### Planned
+**Stack:** FastAPI, PyJWT, pytest
 
-- **FastAPI RBAC API** — JWT authentication, role/permission mapping, and authorization tests.
-- **Django Inventory API** — Django REST Framework, relational models, products, orders, and ORM queries.
+Demo identities are provided for local learning only. The default signing secret is not production-safe; set `JWT_SECRET` before using outside local development.
 
-## General goals
-Each project will include setup instructions, sample requests, automated tests, and notes on design decisions. Projects are intended as practical interview-preparation exercises.
+### 3. [Django Inventory API](./03-django-inventory-api/)
+Provides product and order endpoints with Django ORM models, serializers, stock validation, and transactional order creation.
+
+**Stack:** Django, Django REST Framework, SQLite, pytest-django
+
+## How to use this repository
+
+1. Choose a project folder.
+2. Follow that folder's README to create a virtual environment and install dependencies.
+3. Run its tests with `pytest -q`.
+4. Start the API and explore endpoints through the docs or the included endpoint instructions.
+
+Each project uses synthetic example data. These are interview-practice examples, not production-ready systems. Useful next steps include CI, environment-based configuration, authentication for the inventory API, PostgreSQL, migrations, and deployment.
